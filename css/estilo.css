@@ -11,7 +11,7 @@
     display: flex;
     width: 20%;
     height: 100%;
-    justify-content: left;
+    justify-content: flex-start;
     flex-direction: column;
     background-color: yellow;
 }
@@ -27,7 +27,7 @@
 .conteudo_melhorias {
     display: flex;
     width: 20%;
-    justify-content: right;
+    justify-content: flex-end;
     flex-direction: column;
     background-color: chocolate;
 }
@@ -35,18 +35,9 @@
 .conteudo_construcoes_elementos {
     display: flex;
     height: 100%;
-    justify-content: left;
+    justify-content: flex-start;
     flex-direction: column;
     background-color: springgreen;
-}
-
-.conteudo_melhorias_elementos {
-    display: flex;
-    width: 20%;
-    height: 100%;
-    justify-content: right;
-    flex-direction: column;
-    background-color: darkgreen;
 }
 
 .conteudo_construcoes_titulo {
