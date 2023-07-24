@@ -1,78 +1,86 @@
 .conteudo {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 800px;
     justify-content: center;
     align-items: center;
-    background-color: blue;
 }
 
-.conteudo_construcoes {
+.conteudo_entidades {
     display: flex;
     width: 20%;
     height: 100%;
-    justify-content: flex-start;
+    justify-content: left;
     flex-direction: column;
-    background-color: yellow;
 }
 
 .conteudo_objPrincipal {
     display: flex;
     width: 60%;
+    height: 60%;
     flex-direction: column;
     align-items: center;
-    background-color: blueviolet;
 }
 
-.conteudo_melhorias {
-    display: flex;
+.conteudo_artefatos {
     width: 20%;
-    justify-content: flex-end;
-    flex-direction: column;
-    background-color: chocolate;
+    height: 100%;
 }
 
-.conteudo_construcoes_elementos {
+.conteudo_entidades_elementos {
     display: flex;
     height: 100%;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: springgreen;
 }
 
-.conteudo_construcoes_titulo {
+.conteudo_artefatos_elementos {
+    display: flex;
+    height: 100%;
+    justify-content: right;
+    flex-direction: column;
+}
+
+.conteudo_titulos {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.conteudo_melhorias_titulo {
-    display: flex;
-    align-items: center;
+.conteudo_entidades_titulo_imagem {
+    width: 40%;
+}
+.conteudo_titulos_artefatos_imagem{
+    width: 40%;
+    padding-left: 20%;
+}
+
+.conteudo_entidades_titulo_texto {
+    width: 60%;
+}
+
+.conteudo_titulos_artefatos_texto{
+    width: 40%;
+    text-align: right;
+}
+
+.conteudo_entidades_titulo_imagem_imagem {
     width: 100%;
 }
 
-.conteudo_construcoes_titulo_imagem {
-    width: 20%;
-    background-color: crimson;
-}
-
-.conteudo_construcoes_titulo_texto {
-    width: 80%;
-    background-color: darkorchid;
-}
-
-.conteudo_construcoes_titulo_imagem_imagem {
-    width: 100%;
-}
-
-.conteudo_construcoes_elementos_elemento {
+.conteudo_entidades_elementos_elemento {
     display: flex;
     align-items: center;
     gap: 5%;
 }
 
-.conteudo_construcoes_elementos_elemento_imagem {
+.conteudo_artefatos_elementos_elemento{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.conteudo_entidades_elementos_elemento_imagem {
     width: 20%;
 }
 
