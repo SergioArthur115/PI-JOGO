@@ -1,0 +1,67 @@
+.missoes {
+    width: 90%;
+    padding-left: 9%;
+    padding-top: 1%;
+}
+
+.missoes_1 {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding-right: 18%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    gap: 2%;
+}
+
+.missoes_2 {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding-right: 18%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    gap: 2%;
+}
+
+.missoes_3 {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding-right: 18%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    gap: 2%;
+}
+
+.missoes_imagem {
+    width: 25%;
+}
+
+.missoes_texto_Botao {
+    width: 75%;
+}
+
+.missoes_texto {
+    width: 100%;
+    text-align: justify;
+}
+
+.missoes_botao {
+    width: 100%;
+    text-align: center;
+}
+.botao{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.imagem {
+    width: 100%;
+}
