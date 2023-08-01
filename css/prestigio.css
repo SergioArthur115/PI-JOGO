@@ -1,0 +1,22 @@
+.prestigios {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.prestigio_texto{
+    align-items: center;
+    text-align: justify;
+}
+h2{
+    text-align: center;
+}
+
+.prestigio_botao{
+    text-align: center;
+}
