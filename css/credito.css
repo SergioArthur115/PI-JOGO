@@ -1,4 +1,4 @@
-.estatisticas {
+.creditos {
     width: 50%;
     display: flex;
     justify-content: center;
@@ -7,19 +7,19 @@
     padding-right: 25%;
 }
 
-.estatistica_texto{
+.creditos_texto{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: justify;
     align-items: center;
     width: 100%;
 }
 
-.estatistica_texto_titulo{
+.creditos_texto_titulo{
     width: 20%;
 }
 
-.estatistica_texto_paragrafo{
+.creditos_texto_paragrafo{
     width: 70%;
     padding-right: 10%;
 }

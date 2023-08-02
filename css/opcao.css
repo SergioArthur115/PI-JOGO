@@ -1,0 +1,12 @@
+.opcoes_forms{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.forms_op{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
