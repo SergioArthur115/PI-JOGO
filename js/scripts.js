@@ -1,4 +1,5 @@
 var moeda = 0;
+setInterval(atualizarValorMoeda, 1000);
 
 document.addEventListener("DOMContentLoaded", function () {
     var imagem = document.getElementById("moeda_antiga");
@@ -10,3 +11,8 @@ function clickar() {
     moeda = parseInt(moeda + 1);
     document.getElementById("moeda").innerHTML = moeda;
 }
+
+function atualizarValorMoeda() {
+    moeda += 1;
+    document.getElementById("moeda").innerHTML = moeda;
+  }
