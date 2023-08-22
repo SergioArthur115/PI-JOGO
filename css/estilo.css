@@ -50,7 +50,13 @@
 .conteudo_entidades_titulo_imagem {
     width: 40%;
 }
-.conteudo_titulos_artefatos_imagem{
+
+.conteudo_moeda_titulo_imagem {
+    width: 40%;
+    border-radius: 100%;
+}
+
+.conteudo_titulos_artefatos_imagem {
     width: 40%;
     padding-left: 20%;
 }
@@ -59,7 +65,7 @@
     width: 60%;
 }
 
-.conteudo_titulos_artefatos_texto{
+.conteudo_titulos_artefatos_texto {
     width: 40%;
     text-align: right;
 }
@@ -74,7 +80,7 @@
     gap: 5%;
 }
 
-.conteudo_artefatos_elementos_elemento{
+.conteudo_artefatos_elementos_elemento {
     display: flex;
     align-items: center;
     justify-content: right;
@@ -86,4 +92,10 @@
 
 .imagem {
     width: 100%;
+}
+
+.imagem_moeda {
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
 }
