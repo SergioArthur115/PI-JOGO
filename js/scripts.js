@@ -15,4 +15,11 @@ function clickar() {
 function atualizarValorMoeda() {
     moeda += 1;
     document.getElementById("moeda").innerHTML = moeda;
-  }
+}
+
+function atualizarValorCompra(id) {
+    var elementoValor = document.getElementById(id);
+    var valorAtual = parseFloat(elementoValor.innerText);
+    var novoValor = valorAtual * 1.1;
+    elementoValor.innerText = novoValor.toFixed(2);
+}
