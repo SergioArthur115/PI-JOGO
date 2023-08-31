@@ -50,7 +50,7 @@
 }
 
 .conteudo_entidades_titulo_imagem {
-    width: 40%;
+    width: 60%;
 }
 
 .conteudo_moeda_titulo_imagem {
@@ -59,7 +59,7 @@
 }
 
 .conteudo_titulos_artefatos_imagem {
-    width: 40%;
+    width: 60%;
     padding-left: 20%;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .conteudo_entidades_elementos_elemento_imagem {
-    width: 28%;
+    width: 35%;
     height: 100%;
 }
 
