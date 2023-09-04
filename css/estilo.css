@@ -29,7 +29,6 @@
 
 .conteudo_entidades_elementos {
     display: flex;
-    height: 100%;
     justify-content: flex-start;
     flex-direction: column;
     gap: 1%;
@@ -37,7 +36,6 @@
 
 .conteudo_artefatos_elementos {
     display: flex;
-    height: 100%;
     justify-content: right;
     flex-direction: column;
     gap: 1%;
@@ -76,23 +74,39 @@
     width: 100%;
 }
 
-.conteudo_entidades_elementos_elemento {
+.conteudo_entidades_elementos_elemento1 {
     display: flex;
     align-items: center;
     gap: 5%;
 }
-.conteudo_entidades_elementos_elemento_texto{
+
+.conteudo_entidades_elementos_elemento {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    visibility: hidden;
+}
+
+.conteudo_entidades_elementos_elemento_texto {
     width: 32%;
     text-align: center;
 }
-.conteudo_entidades_elementos_elemento_botao{
+
+.conteudo_entidades_elementos_elemento_botao {
     display: flex;
     width: 100%;
     align-items: center;
 }
-.conteudo_entidades_elementos_elemento_botao_dir{
+
+.conteudo_entidades_elementos_elemento_botao_dir {
     display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: right;
+}
+
+.conteudo_artefatos_elementos_elemento1 {
+    display: flex;
     align-items: center;
     justify-content: right;
 }
@@ -101,6 +115,7 @@
     display: flex;
     align-items: center;
     justify-content: right;
+    visibility: hidden;
 }
 
 .conteudo_entidades_elementos_elemento_imagem {
@@ -112,16 +127,19 @@
     width: 100%;
     height: 100%;
 }
-.botao{
+
+.botao {
     width: 100%;
     height: 25px;
 }
-.botaoTexto{
+
+.botaoTexto {
     padding: 0;
     padding-right: 5%;
     margin: 0;
 }
-.botaoDir{
+
+.botaoDir {
     width: 50%;
     height: 25px;
 }
