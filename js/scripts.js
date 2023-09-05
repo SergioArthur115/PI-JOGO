@@ -20,42 +20,42 @@ function atualizarValorMoeda() {
 }
 
 function atualizarEntidade(id) {
-    if (id == "divEntidade1") {
+    if (id == "valorCompra1") {
         document.getElementById('divEntidade2').style.visibility = "visible";
-    } else if (id == "divEntidade2") {
+    } else if (id == "valorCompra2") {
         document.getElementById('divEntidade3').style.visibility = "visible";
-    } else if (id == "divEntidade3") {
+    } else if (id == "valorCompra3") {
         document.getElementById('divEntidade4').style.visibility = "visible";
-    } else if (id == "divEntidade4") {
+    } else if (id == "valorCompra4") {
         document.getElementById('divEntidade5').style.visibility = "visible";
-    } else if (id == "divEntidade5") {
+    } else if (id == "valorCompra5") {
         document.getElementById('divEntidade6').style.visibility = "visible";
-    } else if (id == "divEntidade6") {
+    } else if (id == "valorCompra6") {
         document.getElementById('divEntidade7').style.visibility = "visible";
-    } else if (id == "divEntidade7") {
+    } else if (id == "valorCompra7") {
         document.getElementById('divEntidade8').style.visibility = "visible";
-    } else if (id == "divEntidade8") {
+    } else if (id == "valorCompra8") {
         document.getElementById('divEntidade9').style.visibility = "visible";
-    } else if (id == "divEntidade9") {
+    } else if (id == "valorCompra8") {
         document.getElementById('divEntidade10').style.visibility = "visible";
     }
-    if (id == "divArtefato1") {
+    if (id == "valorCompra11") {
         document.getElementById('divArtefato2').style.visibility = "visible";
-    } else if (id == "divArtefato2") {
+    } else if (id == "valorCompra22") {
         document.getElementById('divArtefato3').style.visibility = "visible";
-    } else if (id == "divArtefato3") {
+    } else if (id == "valorCompra33") {
         document.getElementById('divArtefato4').style.visibility = "visible";
-    } else if (id == "divArtefato4") {
+    } else if (id == "valorCompra44") {
         document.getElementById('divArtefato5').style.visibility = "visible";
-    } else if (id == "divArtefato5") {
+    } else if (id == "valorCompra55") {
         document.getElementById('divArtefato6').style.visibility = "visible";
-    } else if (id == "divArtefato6") {
+    } else if (id == "valorCompra66") {
         document.getElementById('divArtefato7').style.visibility = "visible";
-    } else if (id == "divArtefato7") {
+    } else if (id == "valorCompra77") {
         document.getElementById('divArtefato8').style.visibility = "visible";
-    } else if (id == "divArtefato8") {
+    } else if (id == "valorCompra88") {
         document.getElementById('divArtefato9').style.visibility = "visible";
-    } else if (id == "divArtefato9") {
+    } else if (id == "valorCompra99") {
         document.getElementById('divArtefato10').style.visibility = "visible";
     }
 }
@@ -63,24 +63,34 @@ function atualizarEntidade(id) {
 function atualizarMPS(id) {
     if (id == "valorCompra1") {
         mps += 0.1;
+        document.getElementById("qtd1").innerHTML = parseInt(document.getElementById("qtd1").innerHTML) + 1;
     } else if (id == "valorCompra2") {
         mps += 1;
+        document.getElementById("qtd2").innerHTML = parseInt(document.getElementById("qtd2").innerHTML) + 1;
     } else if (id == "valorCompra3") {
         mps += 10;
+        document.getElementById("qtd3").innerHTML = parseInt(document.getElementById("qtd3").innerHTML) + 1;
     } else if (id == "valorCompra4") {
         mps += 100;
+        document.getElementById("qtd4").innerHTML = parseInt(document.getElementById("qtd4").innerHTML) + 1;
     } else if (id == "valorCompra5") {
         mps += 1000;
+        document.getElementById("qtd5").innerHTML = parseInt(document.getElementById("qtd5").innerHTML) + 1;
     } else if (id == "valorCompra6") {
         mps += 10000;
+        document.getElementById("qtd6").innerHTML = parseInt(document.getElementById("qtd6").innerHTML) + 1;
     } else if (id == "valorCompra7") {
         mps += 100000;
+        document.getElementById("qtd7").innerHTML = parseInt(document.getElementById("qtd7").innerHTML) + 1;
     } else if (id == "valorCompra8") {
         mps += 1000000;
+        document.getElementById("qtd8").innerHTML = parseInt(document.getElementById("qtd8").innerHTML) + 1;
     } else if (id == "valorCompra9") {
         mps += 10000000;
+        document.getElementById("qtd9").innerHTML = parseInt(document.getElementById("qtd9").innerHTML) + 1;
     } else if (id == "valorCompra10") {
         mps += 100000000;
+        document.getElementById("qtd10").innerHTML = parseInt(document.getElementById("qtd10").innerHTML) + 1;
     }
     document.getElementById("mps").innerHTML = mps.toFixed(2);
 }
@@ -94,6 +104,7 @@ function atualizarValorCompra(id) {
         elementoValor.innerText = novoValor.toFixed(2);
         moeda -= valorAtual;
         atualizarMPS(id);
+        atualizarEntidade(id);
     }
 }
 
@@ -103,7 +114,7 @@ function atualizarArtefato(id) {
     if (valorAtual <= moeda) {
         //console.log("entrou!");
 
-
+        atualizarEntidade(id);
         if (id == "valorCompra11" && !(elementoValor.innerText == "Comprado")) {
             clique += 1;
             elementoValor.innerText = "Comprado";
