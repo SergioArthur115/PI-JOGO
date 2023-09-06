@@ -7,4 +7,4 @@ Além disso, o jogo apresenta gráficos envolventes e uma trilha sonora arrepian
 
 <a href="https://docs.google.com/document/d/1ne_IBd7a7YoemauW9gNKsFowNwovbsdwmy9iyQlM9O0/edit?usp=sharing">Documentação(Em desenvolvimento)</a>
 
-<a href="[https://docs.google.com/document/d/1ne_IBd7a7YoemauW9gNKsFowNwovbsdwmy9iyQlM9O0/edit?usp=sharing](https://sergioarthur115.github.io/PI-JOGO/)https://sergioarthur115.github.io/PI-JOGO/">Teste Online</a>
+<a href="https://sergioarthur115.github.io/PI-JOGO/">Teste Online</a>
