@@ -1,3 +1,7 @@
+body {
+    background-color: #195752;
+}
+
 .livros {
     width: 100%;
     display: flex;

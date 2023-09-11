@@ -1,7 +1,67 @@
 var moeda = 0;
 var mps = 0;
 var clique = 1;
+var entidadesQTD = [
+    entidade1 = document.getElementById('qtd1'),
+    entidade2 = document.getElementById('qtd2'),
+    entidade3 = document.getElementById('qtd3'),
+    entidade4 = document.getElementById('qtd4'),
+    entidade5 = document.getElementById('qtd5'),
+    entidade6 = document.getElementById('qtd6'),
+    entidade7 = document.getElementById('qtd7'),
+    entidade8 = document.getElementById('qtd8'),
+    entidade9 = document.getElementById('qtd9'),
+    entidade10 = document.getElementById('qtd10'),
+]
+var entidadesValor = [
+    document.getElementById('valorCompra1'),
+    document.getElementById('valorCompra2'),
+    document.getElementById('valorCompra3'),
+    document.getElementById('valorCompra4'),
+    document.getElementById('valorCompra5'),
+    document.getElementById('valorCompra6'),
+    document.getElementById('valorCompra7'),
+    document.getElementById('valorCompra8'),
+    document.getElementById('valorCompra9'),
+    document.getElementById('valorCompra10'),
+]
+var artefatosValor = [
+    document.getElementById('valorCompra11'),
+    document.getElementById('valorCompra22'),
+    document.getElementById('valorCompra33'),
+    document.getElementById('valorCompra44'),
+    document.getElementById('valorCompra55'),
+    document.getElementById('valorCompra66'),
+    document.getElementById('valorCompra77'),
+    document.getElementById('valorCompra88'),
+    document.getElementById('valorCompra99'),
+    document.getElementById('valorCompra1010'),
+]
+// Função para salvar as variáveis no cache do navegador
+function salvarVariaveis() {
+    localStorage.setItem("moeda", moeda);
+    localStorage.setItem("mps", mps);
+    localStorage.setItem("clique", clique);
+}
+
+// Função para carregar as variáveis do cache do navegador
+function carregarVariaveis() {
+    moeda = parseFloat(localStorage.getItem("moeda")) || 0;
+    mps = parseFloat(localStorage.getItem("mps")) || 0;
+    clique = parseInt(localStorage.getItem("clique")) || 1;
+}
+
+// Chamar a função para carregar as variáveis ao carregar a página
+carregarVariaveis();
 setInterval(atualizarValorMoeda, 1000);
+
+
+function atualizarValorMoeda() {
+    moeda += mps;
+    document.getElementById("moeda").innerHTML = moeda.toFixed(2);
+    document.getElementById("mps").innerHTML = mps.toFixed(2);
+    salvarVariaveis(); // Salvar as variáveis após atualizar o valor da moeda
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     var imagem = document.getElementById("moeda_antiga");
@@ -11,11 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function clickar() {
     //console.log("Clique na imagem detectado!");
     moeda = parseFloat(moeda + clique);
-    document.getElementById("moeda").innerHTML = moeda.toFixed(2);
-}
-
-function atualizarValorMoeda() {
-    moeda += mps;
     document.getElementById("moeda").innerHTML = moeda.toFixed(2);
 }
 
@@ -156,5 +211,22 @@ function atualizarArtefato(id) {
             elementoValor.innerText = "Comprado";
             moeda -= valorAtual;
         }
+    }
+}
+
+//Página missoes----------------------------------------------------------------
+
+function concluirMissao(id) {
+    var elementoValor = document.getElementById(id);
+    var valorAtual = parseFloat(elementoValor.innerText);
+    if (id == "missao1" && !(elementoValor.innerText == "Concluido")) {
+        mps += 100
+        elementoValor.innerText = "Concluido";
+    } else if (id == "missao2" && !(elementoValor.innerText == "Concluido")) {
+        mps += 1000
+        elementoValor.innerText = "Concluido";
+    } else if (id == "missao3" && !(elementoValor.innerText == "Concluido")) {
+        mps += 10000
+        elementoValor.innerText = "Concluido";
     }
 }

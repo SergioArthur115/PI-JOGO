@@ -1,3 +1,7 @@
+body {
+    background-color: #195752;
+}
+
 .opcoes_forms{
     display: flex;
     flex-direction: column;
