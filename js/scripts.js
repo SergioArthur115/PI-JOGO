@@ -42,16 +42,16 @@ document.addEventListener("DOMContentLoaded", function () {
     imagem.addEventListener("click", clickar);
 
     entidadesQTD = [
-        entidade1 = document.getElementById('qtd1'),
-        entidade2 = document.getElementById('qtd2'),
-        entidade3 = document.getElementById('qtd3'),
-        entidade4 = document.getElementById('qtd4'),
-        entidade5 = document.getElementById('qtd5'),
-        entidade6 = document.getElementById('qtd6'),
-        entidade7 = document.getElementById('qtd7'),
-        entidade8 = document.getElementById('qtd8'),
-        entidade9 = document.getElementById('qtd9'),
-        entidade10 = document.getElementById('qtd10'),
+        document.getElementById('qtd1').innerHTML,
+        document.getElementById('qtd2').innerHTML,
+        document.getElementById('qtd3').innerHTML,
+        document.getElementById('qtd4').innerHTML,
+        document.getElementById('qtd5').innerHTML,
+        document.getElementById('qtd6').innerHTML,
+        document.getElementById('qtd7').innerHTML,
+        document.getElementById('qtd8').innerHTML,
+        document.getElementById('qtd9').innerHTML,
+        document.getElementById('qtd10').innerHTML,
     ]
 
     entidadesValor = [
@@ -79,6 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('valorCompra1010'),
     ]
 });
+var aux = [];
+i=0
+while(i<10){
+    aux[i]=parseInt(entidadesQTD[i]);
+    i++;
+}
 
 function clickar() {
     //console.log("Clique na imagem detectado!");
@@ -131,33 +137,43 @@ function atualizarMPS(id) {
     if (id == "valorCompra1") {
         mps += 0.1;
         document.getElementById("qtd1").innerHTML = parseInt(document.getElementById("qtd1").innerHTML) + 1;
+        entidadesQTD[0] = parseInt(document.getElementById("qtd1").innerHTML)
     } else if (id == "valorCompra2") {
         mps += 1;
         document.getElementById("qtd2").innerHTML = parseInt(document.getElementById("qtd2").innerHTML) + 1;
+        entidadesQTD[1] = parseInt(document.getElementById("qtd2").innerHTML)
     } else if (id == "valorCompra3") {
         mps += 10;
         document.getElementById("qtd3").innerHTML = parseInt(document.getElementById("qtd3").innerHTML) + 1;
+        entidadesQTD[2] = parseInt(document.getElementById("qtd3").innerHTML)
     } else if (id == "valorCompra4") {
         mps += 100;
         document.getElementById("qtd4").innerHTML = parseInt(document.getElementById("qtd4").innerHTML) + 1;
+        entidadesQTD[3] = parseInt(document.getElementById("qtd4").innerHTML)
     } else if (id == "valorCompra5") {
         mps += 1000;
         document.getElementById("qtd5").innerHTML = parseInt(document.getElementById("qtd5").innerHTML) + 1;
+        entidadesQTD[4] = parseInt(document.getElementById("qtd5").innerHTML)
     } else if (id == "valorCompra6") {
         mps += 10000;
         document.getElementById("qtd6").innerHTML = parseInt(document.getElementById("qtd6").innerHTML) + 1;
+        entidadesQTD[5] = parseInt(document.getElementById("qtd6").innerHTML)
     } else if (id == "valorCompra7") {
         mps += 100000;
         document.getElementById("qtd7").innerHTML = parseInt(document.getElementById("qtd7").innerHTML) + 1;
+        entidadesQTD[6] = parseInt(document.getElementById("qtd7").innerHTML)
     } else if (id == "valorCompra8") {
         mps += 1000000;
         document.getElementById("qtd8").innerHTML = parseInt(document.getElementById("qtd8").innerHTML) + 1;
+        entidadesQTD[7] = parseInt(document.getElementById("qtd8").innerHTML)
     } else if (id == "valorCompra9") {
         mps += 10000000;
         document.getElementById("qtd9").innerHTML = parseInt(document.getElementById("qtd9").innerHTML) + 1;
+        entidadesQTD[8] = parseInt(document.getElementById("qtd9").innerHTML)
     } else if (id == "valorCompra10") {
         mps += 100000000;
         document.getElementById("qtd10").innerHTML = parseInt(document.getElementById("qtd10").innerHTML) + 1;
+        entidadesQTD[9] = parseInt(document.getElementById("qtd10").innerHTML)
     }
     document.getElementById("mps").innerHTML = mps.toFixed(2);
 }
