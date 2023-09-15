@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
 });
 var aux = [];
-i=0
-while(i<10){
-    aux[i]=parseInt(entidadesQTD[i]);
+var i = 0;
+while (i < 10) {
+    aux[i] = parseInt(entidadesQTD[i]);
     i++;
 }
 
