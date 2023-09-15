@@ -56,28 +56,28 @@ document.addEventListener("DOMContentLoaded", function () {
     ]
 
     entidadesValor = [
-        document.getElementById('valorCompra1'),
-        document.getElementById('valorCompra2'),
-        document.getElementById('valorCompra3'),
-        document.getElementById('valorCompra4'),
-        document.getElementById('valorCompra5'),
-        document.getElementById('valorCompra6'),
-        document.getElementById('valorCompra7'),
-        document.getElementById('valorCompra8'),
-        document.getElementById('valorCompra9'),
-        document.getElementById('valorCompra10'),
+        document.getElementById('valorCompra1').innerHTML,
+        document.getElementById('valorCompra2').innerHTML,
+        document.getElementById('valorCompra3').innerHTML,
+        document.getElementById('valorCompra4').innerHTML,
+        document.getElementById('valorCompra5').innerHTML,
+        document.getElementById('valorCompra6').innerHTML,
+        document.getElementById('valorCompra7').innerHTML,
+        document.getElementById('valorCompra8').innerHTML,
+        document.getElementById('valorCompra9').innerHTML,
+        document.getElementById('valorCompra10').innerHTML,
     ]
     artefatosValor = [
-        document.getElementById('valorCompra11'),
-        document.getElementById('valorCompra22'),
-        document.getElementById('valorCompra33'),
-        document.getElementById('valorCompra44'),
-        document.getElementById('valorCompra55'),
-        document.getElementById('valorCompra66'),
-        document.getElementById('valorCompra77'),
-        document.getElementById('valorCompra88'),
-        document.getElementById('valorCompra99'),
-        document.getElementById('valorCompra1010'),
+        document.getElementById('valorCompra11').innerHTML,
+        document.getElementById('valorCompra22').innerHTML,
+        document.getElementById('valorCompra33').innerHTML,
+        document.getElementById('valorCompra44').innerHTML,
+        document.getElementById('valorCompra55').innerHTML,
+        document.getElementById('valorCompra66').innerHTML,
+        document.getElementById('valorCompra77').innerHTML,
+        document.getElementById('valorCompra88').innerHTML,
+        document.getElementById('valorCompra99').innerHTML,
+        document.getElementById('valorCompra1010').innerHTML,
     ]
 });
 
