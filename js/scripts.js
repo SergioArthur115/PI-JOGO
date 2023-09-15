@@ -5,28 +5,30 @@ var entidadesQTD = [];
 var entidadesValor = [];
 var artefatosValor = [];
 
-// Função para salvar as variáveis no cache do navegador
-function salvarVariaveis() {
-    localStorage.setItem("moeda", moeda);
-    localStorage.setItem("mps", mps);
-    localStorage.setItem("clique", clique);
-    localStorage.setItem("entidadesQTD", entidadesQTD);
-    localStorage.setItem("entidadesValor", entidadesValor);
-    localStorage.setItem("artefatosValor", artefatosValor);
-}
+const dados = {
+    moeda: 'moeda',
+    mps: 'mps',
+    clique: 'clique',
+    entidadesQTD: 'entidadesQTD',
+    entidadesValor: 'entidadesValor',
+    artefatosValor: 'artefatosValor',
+};
 
-// Função para carregar as variáveis do cache do navegador
-function carregarVariaveis() {
-    moeda = parseFloat(localStorage.getItem("moeda")) || 0;
-    mps = parseFloat(localStorage.getItem("mps")) || 0;
-    clique = parseInt(localStorage.getItem("clique")) || 1;
-    entidadesQTD = parseInt(localStorage.getItem("entidadesQTD")) || 0;
-    entidadesValor = parseFloat(localStorage.getItem("entidadesValor")) || 0;
-    artefatosValor = parseFloat(localStorage.getItem("artefatosValor")) || 0;
-}
+fetch('salvar_informacao.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(dados),
+})
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 
-// Chamar a função para carregar as variáveis ao carregar a página
-carregarVariaveis();
 setInterval(atualizarValorMoeda, 1000);
 
 
@@ -34,7 +36,6 @@ function atualizarValorMoeda() {
     moeda += mps;
     document.getElementById("moeda").innerHTML = moeda.toFixed(2);
     document.getElementById("mps").innerHTML = mps.toFixed(2);
-    salvarVariaveis(); // Salvar as variáveis após atualizar o valor da moeda
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -79,12 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('valorCompra1010'),
     ]
 });
-var aux = [];
-var i = 0;
-while (i < 10) {
-    aux[i] = parseInt(entidadesQTD[i]);
-    i++;
-}
+
 
 function clickar() {
     //console.log("Clique na imagem detectado!");
