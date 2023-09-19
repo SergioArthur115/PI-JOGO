@@ -11,6 +11,45 @@ function salvarInfo() {
     xhr.open("POST", "./php/salvar_informacao.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     // Dados que você deseja enviar
+
+    entidadesQTD = [
+        document.getElementById('qtd1').innerHTML,
+        document.getElementById('qtd2').innerHTML,
+        document.getElementById('qtd3').innerHTML,
+        document.getElementById('qtd4').innerHTML,
+        document.getElementById('qtd5').innerHTML,
+        document.getElementById('qtd6').innerHTML,
+        document.getElementById('qtd7').innerHTML,
+        document.getElementById('qtd8').innerHTML,
+        document.getElementById('qtd9').innerHTML,
+        document.getElementById('qtd10').innerHTML,
+    ]
+
+    entidadesValor = [
+        document.getElementById('valorCompra1').innerHTML,
+        document.getElementById('valorCompra2').innerHTML,
+        document.getElementById('valorCompra3').innerHTML,
+        document.getElementById('valorCompra4').innerHTML,
+        document.getElementById('valorCompra5').innerHTML,
+        document.getElementById('valorCompra6').innerHTML,
+        document.getElementById('valorCompra7').innerHTML,
+        document.getElementById('valorCompra8').innerHTML,
+        document.getElementById('valorCompra9').innerHTML,
+        document.getElementById('valorCompra10').innerHTML,
+    ]
+    artefatosValor = [
+        document.getElementById('valorCompra11').innerHTML,
+        document.getElementById('valorCompra22').innerHTML,
+        document.getElementById('valorCompra33').innerHTML,
+        document.getElementById('valorCompra44').innerHTML,
+        document.getElementById('valorCompra55').innerHTML,
+        document.getElementById('valorCompra66').innerHTML,
+        document.getElementById('valorCompra77').innerHTML,
+        document.getElementById('valorCompra88').innerHTML,
+        document.getElementById('valorCompra99').innerHTML,
+        document.getElementById('valorCompra1010').innerHTML,
+    ]
+
     var dados = "moeda=" + moeda +
         "&mps=" + mps +
         "&clique=" + clique +
