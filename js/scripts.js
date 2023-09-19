@@ -4,60 +4,31 @@ var clique = 1;
 var entidadesQTD = [];
 var entidadesValor = [];
 var artefatosValor = [];
-var estado = false;
+
 
 function salvarInfo() {
-    const dados = {
-        moeda: 'moeda',
-        mps: 'mps',
-        clique: 'clique',
-        entidadesQTD: 'entidadesQTD',
-        entidadesValor: 'entidadesValor',
-        artefatosValor: 'artefatosValor',
-        estado: 'estado',
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "./php/salvar_informacao.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    // Dados que você deseja enviar
+    var dados = "moeda=" + moeda +
+        "&mps=" + mps +
+        "&clique=" + clique +
+        "&entidadesQTD=" + JSON.stringify(entidadesQTD) +
+        "&entidadesValor=" + JSON.stringify(entidadesValor) +
+        "&artefatosValor=" + JSON.stringify(artefatosValor);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // A resposta do servidor está pronta
+            console.log(xhr.responseText);
+        }
     };
 
-    fetch('./php/salvar_informacao.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json', },
-        body: JSON.stringify(dados),
-    })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    estado = true;
-}
-
-function autalizarInfo() {
-    const dados = {
-        moeda: 'moeda',
-        mps: 'mps',
-        clique: 'clique',
-        entidadesQTD: 'entidadesQTD',
-        entidadesValor: 'entidadesValor',
-        artefatosValor: 'artefatosValor',
-        estado: 'estado',
-    };
-
-    fetch('./php/salvar_informacao.php', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json',},
-        body: JSON.stringify(dados),
-    })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+    xhr.send(dados);
 }
 setInterval(atualizarValorMoeda, 1000);
-setInterval(autalizarInfo, 10000);
+setInterval(salvarInfo, 10000);
 
 
 function atualizarValorMoeda() {
@@ -107,9 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('valorCompra99').innerHTML,
         document.getElementById('valorCompra1010').innerHTML,
     ]
-    if (estado === false) {
-        salvarInfo();
-    }
+    salvarInfo();
 });
 
 

@@ -12,43 +12,16 @@ if ($conn->connect_error) {
     die("Falha na conexão com o banco de dados: " . $conn->connect_error);
 }
 
-// Recebe os dados enviados pelo JavaScript
-$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+$moeda = $_POST['moeda'];
+$mps = $_POST['mps'];
+$clique = $_POST['clique'];
+$entidadesQTD = $_POST['entidadesQTD'];
+$entidadesValor = $_POST['entidadesValor'];
+$artefatosValor = $_POST['artefatosValor'];
 
-if ($contentType === "application/json") {
-    // Receives the data sent by JavaScript
-    $data = json_decode(file_get_contents('php://input'), true);
+$estado = false;
 
-    // Access the data using the correct keys
-    $moeda = isset($data['moeda']) ? $data['moeda'] : '';
-    $mps = isset($data['mps']) ? $data['mps'] : '';
-    $clique = isset($data['clique']) ? $data['clique'] : '';
-    $entidadesQTD = isset($data['entidadesQTD']) ? $data['entidadesQTD'] : '';
-    $entidadesValor = isset($data['entidadesValor']) ? $data['entidadesValor'] : '';
-    $artefatosValor = isset($data['artefatosValor']) ? $data['artefatosValor'] : '';
-    $estado = isset($data['estado']) ? $data['estado'] : '';
-}
-
-/*
-$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
-
-if ($contentType === "application/json") {
-  //Receive the RAW post data.
-  $content = trim(file_get_contents("php://input"));
-
-  $decoded = json_decode($content, true);
-
-  //If json_decode failed, the JSON is invalid.
-  if(! is_array($decoded)) {
-
-  } else {
-    // Send error back to user.
-  }
-}
-*/
-
-
-if ($estado === FALSE) {
+if ($estado == false) {
     // Insere os dados no banco de dados
     $sql = "INSERT INTO entidadesqtd (qtd1, qtd2, qtd3, qtd4, qtd5, qtd6, qtd7, qtd8, qtd9, qtd10) VALUES
  ('$entidadesQTD[0]', '$entidadesQTD[1]', '$entidadesQTD[2]', '$entidadesQTD[3]', '$entidadesQTD[4]', '$entidadesQTD[5]', '$entidadesQTD[6]', '$entidadesQTD[7]', '$entidadesQTD[8]','$entidadesQTD[9]')";
@@ -84,9 +57,10 @@ VALUES ('$artefatosValor[0]', '$artefatosValor[1]', '$artefatosValor[2]', '$arte
         echo "Erro ao salvar a informação: \n" . $conn->error;
     }
     $conn->close();
+    $estado = true;
 }
 
-if ($estado === TRUE) {
+if($estado == true) {
     // Insere os dados no banco de dados
     $sql = "UPDATE entidadesqtd SET qtd1 = '$entidadesQTD[0]', qtd2 = '$entidadesQTD[1]', qtd3 = '$entidadesQTD[2]', qtd4 = '$entidadesQTD[3]', qtd5 = '$entidadesQTD[4]', qtd6 = '$entidadesQTD[5]', qtd7 = '$entidadesQTD[6]', qtd8 = '$entidadesQTD[7]', qtd9 = '$entidadesQTD[8]', qtd10 = '$entidadesQTD[9]' WHERE id_entidadesqtd = (SELECT MAX(id_entidadesqtd) FROM entidadesqtd)";
 
