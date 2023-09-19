@@ -12,7 +12,6 @@ body {
     height: 800px;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
 }
 
 .conteudo_entidades {
@@ -29,7 +28,6 @@ body {
     height: 60%;
     flex-direction: column;
     align-items: center;
-    visibility: visible;
     /*position: fixed;*/
 }
 
@@ -56,7 +54,6 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    visibility: visible;
 }
 
 .conteudo_entidades_titulo_imagem {
@@ -90,14 +87,12 @@ body {
     display: flex;
     align-items: center;
     gap: 5%;
-    visibility: visible;
 }
 
 .conteudo_entidades_elementos_elemento {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 5%;
-    visibility: hidden;
 }
 
 .conteudo_entidades_elementos_elemento_texto {
@@ -122,14 +117,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: right;
-    visibility: visible;
+    gap: 20%;
 }
 
 .conteudo_artefatos_elementos_elemento {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: right;
-    visibility: hidden;
+    gap: 20%;
 }
 
 .conteudo_entidades_elementos_elemento_imagem {
@@ -223,7 +218,6 @@ body {
     .conteudo_titulos_artefatos_texto {
         width: 40%;
         text-align: left;
-        padding-left: 20px;
     }
 
     .conteudo_entidades_elementos_elemento_botao_dir {
@@ -248,7 +242,7 @@ body {
         align-items: center;
         width: 100%;
         padding-left: 15%;
-        padding-top: 2%;
+        padding-top: 10%;
     }
 
     .conteudo_entidades_elementos_elemento_imagem {
@@ -257,13 +251,21 @@ body {
     }
 
     .conteudo_artefatos_elementos_elemento {
+        display: none;
+        align-items: center;
+        gap: 5%;
+        justify-content: center;
+    }
+
+    .conteudo_artefatos_elementos_elemento1 {
         display: flex;
         align-items: center;
+        gap: 5%;
         justify-content: center;
     }
 
     .conteudo_entidades_elementos_elemento {
-        display: flex;
+        display: none;
         align-items: center;
         gap: 5%;
         justify-content: center;

@@ -57,7 +57,7 @@ function autalizarInfo() {
         });
 }
 setInterval(atualizarValorMoeda, 1000);
-//setInterval(autalizarInfo, 10000);
+setInterval(autalizarInfo, 10000);
 
 
 function atualizarValorMoeda() {
@@ -121,42 +121,42 @@ function clickar() {
 
 function atualizarEntidade(id) {
     if (id == "valorCompra1") {
-        document.getElementById('divEntidade2').style.visibility = "visible";
+        document.getElementById('divEntidade2').style.display = "flex";
     } else if (id == "valorCompra2") {
-        document.getElementById('divEntidade3').style.visibility = "visible";
+        document.getElementById('divEntidade3').style.display = "flex";
     } else if (id == "valorCompra3") {
-        document.getElementById('divEntidade4').style.visibility = "visible";
+        document.getElementById('divEntidade4').style.display = "flex";
     } else if (id == "valorCompra4") {
-        document.getElementById('divEntidade5').style.visibility = "visible";
+        document.getElementById('divEntidade5').style.display = "flex";
     } else if (id == "valorCompra5") {
-        document.getElementById('divEntidade6').style.visibility = "visible";
+        document.getElementById('divEntidade6').style.display = "flex";
     } else if (id == "valorCompra6") {
-        document.getElementById('divEntidade7').style.visibility = "visible";
+        document.getElementById('divEntidade7').style.display = "flex";
     } else if (id == "valorCompra7") {
-        document.getElementById('divEntidade8').style.visibility = "visible";
+        document.getElementById('divEntidade8').style.display = "flex";
     } else if (id == "valorCompra8") {
-        document.getElementById('divEntidade9').style.visibility = "visible";
+        document.getElementById('divEntidade9').style.display = "flex";
     } else if (id == "valorCompra8") {
-        document.getElementById('divEntidade10').style.visibility = "visible";
+        document.getElementById('divEntidade10').style.display = "flex";
     }
     if (id == "valorCompra11") {
-        document.getElementById('divArtefato2').style.visibility = "visible";
+        document.getElementById('divArtefato2').style.display = "flex";
     } else if (id == "valorCompra22") {
-        document.getElementById('divArtefato3').style.visibility = "visible";
+        document.getElementById('divArtefato3').style.display = "flex";
     } else if (id == "valorCompra33") {
-        document.getElementById('divArtefato4').style.visibility = "visible";
+        document.getElementById('divArtefato4').style.display = "flex";
     } else if (id == "valorCompra44") {
-        document.getElementById('divArtefato5').style.visibility = "visible";
+        document.getElementById('divArtefato5').style.display = "flex";
     } else if (id == "valorCompra55") {
-        document.getElementById('divArtefato6').style.visibility = "visible";
+        document.getElementById('divArtefato6').style.display = "flex";
     } else if (id == "valorCompra66") {
-        document.getElementById('divArtefato7').style.visibility = "visible";
+        document.getElementById('divArtefato7').style.display = "flex";
     } else if (id == "valorCompra77") {
-        document.getElementById('divArtefato8').style.visibility = "visible";
+        document.getElementById('divArtefato8').style.display = "flex";
     } else if (id == "valorCompra88") {
-        document.getElementById('divArtefato9').style.visibility = "visible";
+        document.getElementById('divArtefato9').style.display = "flex";
     } else if (id == "valorCompra99") {
-        document.getElementById('divArtefato10').style.visibility = "visible";
+        document.getElementById('divArtefato10').style.display = "flex";
     }
 }
 

@@ -16,17 +16,17 @@ if ($conn->connect_error) {
 $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
 if ($contentType === "application/json") {
-  // Receives the data sent by JavaScript
-  $data = json_decode(file_get_contents('php://input'), true);
+    // Receives the data sent by JavaScript
+    $data = json_decode(file_get_contents('php://input'), true);
 
-  // Access the data using the correct keys
-  $moeda = isset($data['moeda']) ? $data['moeda'] : '';
-  $mps = isset($data['mps']) ? $data['mps'] : '';
-  $clique = isset($data['clique']) ? $data['clique'] : '';
-  $entidadesQTD = isset($data['entidadesQTD']) ? $data['entidadesQTD'] : '';
-  $entidadesValor = isset($data['entidadesValor']) ? $data['entidadesValor'] : '';
-  $artefatosValor = isset($data['artefatosValor']) ? $data['artefatosValor'] : '';
-  $estado = isset($data['estado']) ? $data['estado'] : '';
+    // Access the data using the correct keys
+    $moeda = isset($data['moeda']) ? $data['moeda'] : '';
+    $mps = isset($data['mps']) ? $data['mps'] : '';
+    $clique = isset($data['clique']) ? $data['clique'] : '';
+    $entidadesQTD = isset($data['entidadesQTD']) ? $data['entidadesQTD'] : '';
+    $entidadesValor = isset($data['entidadesValor']) ? $data['entidadesValor'] : '';
+    $artefatosValor = isset($data['artefatosValor']) ? $data['artefatosValor'] : '';
+    $estado = isset($data['estado']) ? $data['estado'] : '';
 }
 
 /*
@@ -48,7 +48,7 @@ if ($contentType === "application/json") {
 */
 
 
-if ($estado == false) {
+if ($estado === FALSE) {
     // Insere os dados no banco de dados
     $sql = "INSERT INTO entidadesqtd (qtd1, qtd2, qtd3, qtd4, qtd5, qtd6, qtd7, qtd8, qtd9, qtd10) VALUES
  ('$entidadesQTD[0]', '$entidadesQTD[1]', '$entidadesQTD[2]', '$entidadesQTD[3]', '$entidadesQTD[4]', '$entidadesQTD[5]', '$entidadesQTD[6]', '$entidadesQTD[7]', '$entidadesQTD[8]','$entidadesQTD[9]')";
@@ -86,7 +86,7 @@ VALUES ('$artefatosValor[0]', '$artefatosValor[1]', '$artefatosValor[2]', '$arte
     $conn->close();
 }
 
-if ($estado == TRUE) {
+if ($estado === TRUE) {
     // Insere os dados no banco de dados
     $sql = "UPDATE entidadesqtd SET qtd1 = '$entidadesQTD[0]', qtd2 = '$entidadesQTD[1]', qtd3 = '$entidadesQTD[2]', qtd4 = '$entidadesQTD[3]', qtd5 = '$entidadesQTD[4]', qtd6 = '$entidadesQTD[5]', qtd7 = '$entidadesQTD[6]', qtd8 = '$entidadesQTD[7]', qtd9 = '$entidadesQTD[8]', qtd10 = '$entidadesQTD[9]' WHERE id_entidadesqtd = (SELECT MAX(id_entidadesqtd) FROM entidadesqtd)";
 
@@ -96,29 +96,36 @@ if ($estado == TRUE) {
     $sql2 = "UPDATE artefatosvalor SET valor1 = '$artefatosValor[0]', valor2 = '$artefatosValor[1]', valor3 = '$artefatosValor[2]', valor4 = '$artefatosValor[3]', valor5 = '$artefatosValor[4]', valor6 = '$artefatosValor[5]', valor7 = '$artefatosValor[6]', valor8 = '$artefatosValor[7]', valor9 = '$artefatosValor[8]', valor10 = '$artefatosValor[9]' WHERE id_artefatosvalor = (SELECT MAX(id_artefatosvalor) FROM artefatosvalor)";
 
     if ($conn->query($sql) === TRUE) {
-        echo "entidadesQTD autalizada com sucesso!\n";
+        echo "entidadesQTD atualizada com sucesso!\n";
     } else {
-        echo "Erro ao autalizar a informação: \n" . $conn->error;
+        echo "Erro ao atualizar a informação: \n" . $conn->error;
     }
 
     if ($conn->query($sql1) === TRUE) {
-        echo "entidadesValor autalizada com sucesso!\n";
+        echo "entidadesValor atualizada com sucesso!\n";
     } else {
-        echo "Erro ao autalizar a informação: \n" . $conn->error;
+        echo "Erro ao atualizar a informação: \n" . $conn->error;
     }
 
     if ($conn->query($sql2) === TRUE) {
-        echo "artefatosValor autalizada com sucesso!\n";
+        echo "artefatosValor atualizada com sucesso!\n";
     } else {
-        echo "Erro ao autalizar a informação: \n" . $conn->error;
+        echo "Erro ao atualizar a informação: \n" . $conn->error;
     }
 
-    $sql3 = "UPDATE cliente SET moeda = '$moeda', mps = '$mps', clique = '$clique', id_entidadesQTD = '$id_entidadesQTD', id_entidadesValor = '$id_entidadesValor', id_artefatosValor = '$id_artefatosValor', WHERE id_entidadesqtd = (SELECT MAX(id_entidadesqtd) FROM entidadesqtd),id_entidadesvalor = (SELECT MAX(id_entidadesvalor) FROM entidadesvalor),id_artefatosvalor = (SELECT MAX(id_artefatosvalor) FROM artefatosvalor)";
+    $sql3 = "UPDATE cliente 
+SET moeda = '$moeda', 
+mps = '$mps', 
+clique = '$clique',  
+FROM entidadesqtd, entidadesvalor, artefatosvalor 
+WHERE id_entidadesqtd = SELECT MAX(id_entidadesqtd), 
+id_entidadesvalor = SELECT MAX(id_entidadesvalor), 
+id_artefatosvalor = SELECT MAX(id_artefatosvalor)";
 
     if ($conn->query($sql3) === TRUE) {
-        echo "cliente autalizada com sucesso!\n";
+        echo "cliente atualizada com sucesso!\n";
     } else {
-        echo "Erro ao autalizar a informação: \n" . $conn->error;
+        echo "Erro ao atualizar a informação: \n" . $conn->error;
     }
     $conn->close();
 }
