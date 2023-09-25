@@ -77,6 +77,13 @@ function atualizarValorMoeda() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    var moeda = "<? php echo $moeda; ?>";
+    var mps = "<? php echo $mps; ?>";
+    var clique = "<? php echo $clique; ?>";
+    var entidadesQTD = "<? php echo json_encode($entidadesQTD); ?>";
+    var entidadesValor = "<? php echo json_encode($entidadesValor); ?>";
+    var artefatosValor = "<? php echo json_encode($artefatosValor); ?>";
+
     var imagem = document.getElementById("moeda_antiga");
     imagem.addEventListener("click", clickar);
 

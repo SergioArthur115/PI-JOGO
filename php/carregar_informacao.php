@@ -63,8 +63,8 @@ echo "<script>";
 echo "var entidadesQTD = " . json_encode($entidadesQTD) . ";";
 echo "var entidadesValor = " . json_encode($entidadesValor) . ";";
 echo "var artefatosValor = " . json_encode($artefatosValor) . ";";
-echo "var moeda = " . $cliente['moeda'] . ";";
-echo "var mps = " . $cliente['mps'] . ";";
-echo "var clique = " . $cliente['clique'] . ";";
+echo "var moeda = " . $moeda . ";";
+echo "var mps = " . $mps . ";";
+echo "var clique = " . $clique . ";";
 echo "</script>";
 ?>
