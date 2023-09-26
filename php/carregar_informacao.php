@@ -59,12 +59,15 @@ $mps = $sql2[1];
 $clique = $sql2[2];
 
 // Passando as informações para o JavaScript
-echo "<script>";
-echo "var entidadesQTD = " . json_encode($entidadesQTD) . ";";
-echo "var entidadesValor = " . json_encode($entidadesValor) . ";";
-echo "var artefatosValor = " . json_encode($artefatosValor) . ";";
-echo "var moeda = " . $moeda . ";";
-echo "var mps = " . $mps . ";";
-echo "var clique = " . $clique . ";";
-echo "</script>";
+$data = array(
+    'moeda' => $moeda,
+    'mps' => $mps,
+    'clique' => $clique,
+    'entidadesQTD' =>json_encode($entidadesQTD),
+    'entidadesValor' => json_encode($entidadesValor),
+    'artefatosValor' => json_encode($artefatosValor)
+);
+// Retorna os valores em formato JSON
+header('Content-Type: application/json');
+echo json_encode($data);
 ?>

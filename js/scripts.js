@@ -66,6 +66,25 @@ function salvarInfo() {
 
     xhr.send(dados);
 }
+function carregarInfo() {
+    $.ajax({
+        url: "./php/carregar_informacao.php",
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            // Os valores das variáveis estão disponíveis no objeto 'data'
+            moeda = data.moeda;
+            mps = data.mps;
+            clique = data.clique;
+            entidadesQTD =json_decode($entidadesQTD);
+            entidadesValor = json_decode($entidadesValor);
+            artefatosValor = json_decode($artefatosValor);
+        },
+        error: function() {
+            console.error('Erro ao obter os valores das variáveis do PHP');
+        }
+    });
+}
 setInterval(atualizarValorMoeda, 1000);
 setInterval(salvarInfo, 10000);
 
@@ -77,53 +96,9 @@ function atualizarValorMoeda() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var moeda = "<? php echo $moeda; ?>";
-    var mps = "<? php echo $mps; ?>";
-    var clique = "<? php echo $clique; ?>";
-    var entidadesQTD = "<? php echo json_encode($entidadesQTD); ?>";
-    var entidadesValor = "<? php echo json_encode($entidadesValor); ?>";
-    var artefatosValor = "<? php echo json_encode($artefatosValor); ?>";
-
     var imagem = document.getElementById("moeda_antiga");
     imagem.addEventListener("click", clickar);
-
-    entidadesQTD = [
-        document.getElementById('qtd1').innerHTML,
-        document.getElementById('qtd2').innerHTML,
-        document.getElementById('qtd3').innerHTML,
-        document.getElementById('qtd4').innerHTML,
-        document.getElementById('qtd5').innerHTML,
-        document.getElementById('qtd6').innerHTML,
-        document.getElementById('qtd7').innerHTML,
-        document.getElementById('qtd8').innerHTML,
-        document.getElementById('qtd9').innerHTML,
-        document.getElementById('qtd10').innerHTML,
-    ]
-
-    entidadesValor = [
-        document.getElementById('valorCompra1').innerHTML,
-        document.getElementById('valorCompra2').innerHTML,
-        document.getElementById('valorCompra3').innerHTML,
-        document.getElementById('valorCompra4').innerHTML,
-        document.getElementById('valorCompra5').innerHTML,
-        document.getElementById('valorCompra6').innerHTML,
-        document.getElementById('valorCompra7').innerHTML,
-        document.getElementById('valorCompra8').innerHTML,
-        document.getElementById('valorCompra9').innerHTML,
-        document.getElementById('valorCompra10').innerHTML,
-    ]
-    artefatosValor = [
-        document.getElementById('valorCompra11').innerHTML,
-        document.getElementById('valorCompra22').innerHTML,
-        document.getElementById('valorCompra33').innerHTML,
-        document.getElementById('valorCompra44').innerHTML,
-        document.getElementById('valorCompra55').innerHTML,
-        document.getElementById('valorCompra66').innerHTML,
-        document.getElementById('valorCompra77').innerHTML,
-        document.getElementById('valorCompra88').innerHTML,
-        document.getElementById('valorCompra99').innerHTML,
-        document.getElementById('valorCompra1010').innerHTML,
-    ]
+    carregarInfo();
     salvarInfo();
 });
 

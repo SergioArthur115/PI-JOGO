@@ -96,7 +96,6 @@ if ($clique == 1) {
 }
 
 if ($clique != 1) {
-    echo "teste";
     // Insere os dados no banco de dados
     $sql = "UPDATE entidadesqtd SET qtd1 = '$entidade1', qtd2 = '$entidade2', qtd3 = '$entidade3', qtd4 = '$entidade4', qtd5 = '$entidade5', qtd6 = '$entidade6', qtd7 = '$entidade7', qtd8 = '$entidade8', qtd9 = '$entidade9', qtd10 = '$entidade10' WHERE id_entidadesqtd = (SELECT MAX(id_entidadesqtd) FROM entidadesqtd)";
 
