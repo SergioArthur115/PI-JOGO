@@ -76,9 +76,9 @@ function carregarInfo() {
             moeda = data.moeda;
             mps = data.mps;
             clique = data.clique;
-            entidadesQTD =json_decode($entidadesQTD);
-            entidadesValor = json_decode($entidadesValor);
-            artefatosValor = json_decode($artefatosValor);
+            entidadesQTD =json_decode(data.entidadesQTD);
+            entidadesValor = json_decode(data.entidadesValor);
+            artefatosValor = json_decode(data.artefatosValor);
         },
         error: function() {
             console.error('Erro ao obter os valores das variáveis do PHP');
