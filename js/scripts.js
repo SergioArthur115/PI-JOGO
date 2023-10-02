@@ -71,17 +71,18 @@ function carregarInfo() {
         url: "./php/carregar_informacao.php",
         type: 'GET',
         dataType: 'json',
-        success: function(data) {
+        success: function (data) {
             // Os valores das variáveis estão disponíveis no objeto 'data'
             moeda = data.moeda;
             mps = data.mps;
             clique = data.clique;
-            entidadesQTD =json_decode(data.entidadesQTD);
+            entidadesQTD = json_decode(data.entidadesQTD);
             entidadesValor = json_decode(data.entidadesValor);
             artefatosValor = json_decode(data.artefatosValor);
         },
-        error: function() {
+        error: function () {
             console.error('Erro ao obter os valores das variáveis do PHP');
+
         }
     });
 }
