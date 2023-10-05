@@ -18,26 +18,39 @@ $sql1 = "SELECT * FROM entidadesvalor WHERE id_entidadesValor = (SELECT MAX(id_e
 
 $sql2 = "SELECT * FROM artefatosValor WHERE id_artefatosValor = (SELECT MAX(id_artefatosValor) FROM artefatosValor)";
 
-if ($conn->query($sql) === TRUE) {
-    echo "entidadesQTD carregada com sucesso!\n>";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $entidadesQTD = $row['entidadesqtd'];
+    echo "entidadesQTD carregada com sucesso!\n";
 } else {
     echo "Erro ao carregar a informação: \n" . $conn->error;
 }
 
-if ($conn->query($sql1) === TRUE) {
+$result = $conn->query($sql1);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $entidadesValor = $row['entidadesvalor'];
     echo "entidadesValor carregada com sucesso!\n";
 } else {
     echo "Erro ao carregar a informação: \n" . $conn->error;
 }
 
-if ($conn->query($sql2) === TRUE) {
+$result = $conn->query($sql2);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $artefatosValor = $row['artefatosvalor'];
     echo "artefatosValor carregada com sucesso!\n";
 } else {
     echo "Erro ao carregar a informação: \n" . $conn->error;
 }
+
 $sql3 = "SELECT moeda, mps, clique FROM cliente WHERE id_entidadesQTD = (SELECT MAX(id_entidadesQTD) FROM entidadesqtd) AND id_entidadesValor = (SELECT MAX(id_entidadesValor) FROM entidadesvalor) AND id_artefatosValor = (SELECT MAX(id_artefatosValor) FROM artefatosvalor)";
 
-if ($conn->query($sql3) === TRUE) {
+$result = $conn->query($sql3);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $entidadesQTD = $row['cliente'];
     echo "cliente carregada com sucesso!\n";
 } else {
     echo "Erro ao carregar a informação: \n" . $conn->error;
@@ -45,14 +58,14 @@ if ($conn->query($sql3) === TRUE) {
 $conn->close();
 
 
-for ($i=1; $i <= 10; $i++) { 
-    $entidadesQTD[$i-1] = $sql[$i];
+for ($i = 1; $i <= 50; $i++) {
+    $entidadesQTD[$i - 1] = $sql[$i];
 }
-for ($i=1; $i <= 10; $i++) { 
-    $entidadesValor[$i-1] = $sql1[$i];
+for ($i = 1; $i <= 50; $i++) {
+    $entidadesValor[$i - 1] = $sql1[$i];
 }
-for ($i=1; $i <= 10; $i++) { 
-    $artefatosValor[$i-1] = $sql2[$i];
+for ($i = 1; $i <= 50; $i++) {
+    $artefatosValor[$i - 1] = $sql2[$i];
 }
 $moeda = $sql2[0];
 $mps = $sql2[1];

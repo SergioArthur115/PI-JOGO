@@ -67,6 +67,7 @@ function salvarInfo() {
     xhr.send(dados);
 }
 function carregarInfo() {
+    /*
     $.ajax({
         url: "./php/carregar_informacao.php",
         type: 'GET',
@@ -85,6 +86,29 @@ function carregarInfo() {
 
         }
     });
+    */
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // A resposta foi recebida com sucesso
+                data = JSON.parse(xhr.responseText);
+                moeda = data.moeda;
+                mps = data.mps;
+                clique = data.clique;
+                entidadesQTD = json_decode(data.entidadesQTD);
+                entidadesValor = json_decode(data.entidadesValor);
+                artefatosValor = json_decode(data.artefatosValor);
+            } else {
+                // Ocorreu um erro na requisição
+                console.error("Erro na requisição: " + xhr.status);
+            }
+        }
+    };
+
+    xhr.open("GET", "./php/carregar_informacao.php", true);
+    xhr.send();
+    
 }
 setInterval(atualizarValorMoeda, 1000);
 setInterval(salvarInfo, 10000);
@@ -100,7 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var imagem = document.getElementById("moeda_antiga");
     imagem.addEventListener("click", clickar);
     carregarInfo();
-    salvarInfo();
+    if (clique == 1) { salvarInfo(); }
+
 });
 
 
