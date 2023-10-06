@@ -1,11 +1,3 @@
-var moeda = 0;
-var mps = 0;
-var clique = 1;
-var entidadesQTD = [];
-var entidadesValor = [];
-var artefatosValor = [];
-
-
 function salvarInfo() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "./php/salvar_informacao.php", true);
@@ -67,38 +59,64 @@ function salvarInfo() {
     xhr.send(dados);
 }
 function carregarInfo() {
-    /*
-    $.ajax({
-        url: "./php/carregar_informacao.php",
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            // Os valores das variáveis estão disponíveis no objeto 'data'
-            moeda = data.moeda;
-            mps = data.mps;
-            clique = data.clique;
-            entidadesQTD = json_decode(data.entidadesQTD);
-            entidadesValor = json_decode(data.entidadesValor);
-            artefatosValor = json_decode(data.artefatosValor);
-        },
-        error: function () {
-            console.error('Erro ao obter os valores das variáveis do PHP');
+    moeda = parseFloat(document.getElementById("moeda").innerHTML);
+    mps =parseFloat(document.getElementById("mps").innerHTML);
+    clique = parseInt(1);
+    entidadesQTD = [
+        document.getElementById('qtd1').innerHTML,
+        document.getElementById('qtd2').innerHTML,
+        document.getElementById('qtd3').innerHTML,
+        document.getElementById('qtd4').innerHTML,
+        document.getElementById('qtd5').innerHTML,
+        document.getElementById('qtd6').innerHTML,
+        document.getElementById('qtd7').innerHTML,
+        document.getElementById('qtd8').innerHTML,
+        document.getElementById('qtd9').innerHTML,
+        document.getElementById('qtd10').innerHTML,
+    ]
 
-        }
-    });
-    */
+    entidadesValor = [
+        document.getElementById('valorCompra1').innerHTML,
+        document.getElementById('valorCompra2').innerHTML,
+        document.getElementById('valorCompra3').innerHTML,
+        document.getElementById('valorCompra4').innerHTML,
+        document.getElementById('valorCompra5').innerHTML,
+        document.getElementById('valorCompra6').innerHTML,
+        document.getElementById('valorCompra7').innerHTML,
+        document.getElementById('valorCompra8').innerHTML,
+        document.getElementById('valorCompra9').innerHTML,
+        document.getElementById('valorCompra10').innerHTML,
+    ]
+    artefatosValor = [
+        document.getElementById('valorCompra11').innerHTML,
+        document.getElementById('valorCompra22').innerHTML,
+        document.getElementById('valorCompra33').innerHTML,
+        document.getElementById('valorCompra44').innerHTML,
+        document.getElementById('valorCompra55').innerHTML,
+        document.getElementById('valorCompra66').innerHTML,
+        document.getElementById('valorCompra77').innerHTML,
+        document.getElementById('valorCompra88').innerHTML,
+        document.getElementById('valorCompra99').innerHTML,
+        document.getElementById('valorCompra1010').innerHTML,
+    ]
+    console.log(moeda);
+    console.log(mps);
+    console.log(clique);
+    console.log(entidadesQTD);
+    console.log(entidadesValor);
+    console.log(artefatosValor);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 // A resposta foi recebida com sucesso
-                data = JSON.parse(xhr.responseText);
-                moeda = data.moeda;
-                mps = data.mps;
-                clique = data.clique;
-                entidadesQTD = json_decode(data.entidadesQTD);
-                entidadesValor = json_decode(data.entidadesValor);
-                artefatosValor = json_decode(data.artefatosValor);
+                data = (xhr.responseText);
+                moeda = parseFloat(data.moeda);
+                mps = parseFloat(data.mps);
+                clique = parseInt(data.clique);
+                entidadesQTD = (data.entidadesQTD);
+                entidadesValor = (data.entidadesValor);
+                artefatosValor = (data.artefatosValor);
             } else {
                 // Ocorreu um erro na requisição
                 console.error("Erro na requisição: " + xhr.status);
@@ -108,16 +126,21 @@ function carregarInfo() {
 
     xhr.open("GET", "./php/carregar_informacao.php", true);
     xhr.send();
-    
+    console.log(moeda);
+    console.log(mps);
+    console.log(clique);
+    console.log(entidadesQTD);
+    console.log(entidadesValor);
+    console.log(artefatosValor);
 }
 setInterval(atualizarValorMoeda, 1000);
 setInterval(salvarInfo, 10000);
 
 
 function atualizarValorMoeda() {
-    moeda += mps;
-    document.getElementById("moeda").innerHTML = moeda.toFixed(2);
-    document.getElementById("mps").innerHTML = mps.toFixed(2);
+    moeda += parseFloat(mps);
+    document.getElementById("moeda").innerHTML = parseFloat(moeda.toFixed(2));
+    document.getElementById("mps").innerHTML = parseFloat(mps.toFixed(2));
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -132,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function clickar() {
     //console.log("Clique na imagem detectado!");
     moeda = parseFloat(moeda + clique);
-    document.getElementById("moeda").innerHTML = moeda.toFixed(2);
+    document.getElementById("moeda").innerHTML = parseFloat(moeda.toFixed(2));
 }
 
 function atualizarEntidade(id) {
@@ -178,47 +201,47 @@ function atualizarEntidade(id) {
 
 function atualizarMPS(id) {
     if (id == "valorCompra1") {
-        mps += 0.1;
+        mps += parseFloat(0.1);
         document.getElementById("qtd1").innerHTML = parseInt(document.getElementById("qtd1").innerHTML) + 1;
         entidadesQTD[0] = parseInt(document.getElementById("qtd1").innerHTML)
     } else if (id == "valorCompra2") {
-        mps += 1;
+        mps += parseFloat(1);
         document.getElementById("qtd2").innerHTML = parseInt(document.getElementById("qtd2").innerHTML) + 1;
         entidadesQTD[1] = parseInt(document.getElementById("qtd2").innerHTML)
     } else if (id == "valorCompra3") {
-        mps += 10;
+        mps += parseFloat(10);
         document.getElementById("qtd3").innerHTML = parseInt(document.getElementById("qtd3").innerHTML) + 1;
         entidadesQTD[2] = parseInt(document.getElementById("qtd3").innerHTML)
     } else if (id == "valorCompra4") {
-        mps += 100;
+        mps += parseFloat(100);
         document.getElementById("qtd4").innerHTML = parseInt(document.getElementById("qtd4").innerHTML) + 1;
         entidadesQTD[3] = parseInt(document.getElementById("qtd4").innerHTML)
     } else if (id == "valorCompra5") {
-        mps += 1000;
+        mps += parseFloat(1000);
         document.getElementById("qtd5").innerHTML = parseInt(document.getElementById("qtd5").innerHTML) + 1;
         entidadesQTD[4] = parseInt(document.getElementById("qtd5").innerHTML)
     } else if (id == "valorCompra6") {
-        mps += 10000;
+        mps += parseFloat(10000);
         document.getElementById("qtd6").innerHTML = parseInt(document.getElementById("qtd6").innerHTML) + 1;
         entidadesQTD[5] = parseInt(document.getElementById("qtd6").innerHTML)
     } else if (id == "valorCompra7") {
-        mps += 100000;
+        mps += parseFloat(100000);
         document.getElementById("qtd7").innerHTML = parseInt(document.getElementById("qtd7").innerHTML) + 1;
         entidadesQTD[6] = parseInt(document.getElementById("qtd7").innerHTML)
     } else if (id == "valorCompra8") {
-        mps += 1000000;
+        mps += parseFloat(1000000);
         document.getElementById("qtd8").innerHTML = parseInt(document.getElementById("qtd8").innerHTML) + 1;
         entidadesQTD[7] = parseInt(document.getElementById("qtd8").innerHTML)
     } else if (id == "valorCompra9") {
-        mps += 10000000;
+        mps += parseFloat(10000000);
         document.getElementById("qtd9").innerHTML = parseInt(document.getElementById("qtd9").innerHTML) + 1;
         entidadesQTD[8] = parseInt(document.getElementById("qtd9").innerHTML)
     } else if (id == "valorCompra10") {
-        mps += 100000000;
+        mps += parseFloat(100000000);
         document.getElementById("qtd10").innerHTML = parseInt(document.getElementById("qtd10").innerHTML) + 1;
         entidadesQTD[9] = parseInt(document.getElementById("qtd10").innerHTML)
     }
-    document.getElementById("mps").innerHTML = mps.toFixed(2);
+    document.getElementById("mps").innerHTML = parseFloat(mps.toFixed(2));
 }
 
 function atualizarValorCompra(id) {
